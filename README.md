@@ -5,9 +5,6 @@ Financial Management App (version 0.0)
 
 ---
 
-
-Team: InsertTeamName'); Drop Table Teams;--
-
 List which source files you are currently working on
 Please keep this updated!
 
