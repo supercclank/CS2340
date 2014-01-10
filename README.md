@@ -6,13 +6,13 @@ project repository for CS2340
 
 Who is working on what?
 
-Cory -
+supercclank - Cory -
 =======
-Evan -
+nolasaint - Evan -
 =======
-Edward -
+edwardyu236 - Edward -
 =======
-Son -
+stran7- Son -
 =======
-Sandy -
+sand500 - Sandy -
 =======
