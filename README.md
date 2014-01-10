@@ -9,7 +9,7 @@ List which source files you are currently working on
 Please keep this updated!
 
 =====================
-Cory (superclank):
+Cory (supercclank):
   + (none)
   + 
 =====================
