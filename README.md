@@ -18,7 +18,6 @@ Evan (nolasaint):
   + 
 =====================
 Edward (edwardyu236):
-  + testing
   + (none)
   + 
 =====================
