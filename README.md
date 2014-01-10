@@ -1,18 +1,31 @@
-CS2340
-======
+CS 2340 Group Project Repository:
+Financial Management App (version 0.0)
 
-project repository for CS2340
-=======
+=============================
+Group Name: while (e_coyote);
+=============================
 
-Who is working on what?
+List which source files you are currently working on
+Please keep this updated!
 
-supercclank - Cory -
-=======
-nolasaint - Evan -
-=======
-edwardyu236 - Edward -
-=======
-stran7- Son -
-=======
-sand500 - Sandeep -
-=======
+=====================
+Cory (superclank):
+  + (none)
+  + 
+=====================
+Evan (nolasaint):
+  + (none)
+  + 
+=====================
+Edward (edwardyu236):
+  + (none)
+  + 
+=====================
+Son (stran7):
+  + (none)
+  + 
+=====================
+Sandeep (sand500):
+  + (none)
+  + 
+=====================
