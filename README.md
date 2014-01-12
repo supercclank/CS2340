@@ -9,7 +9,11 @@ Please keep this updated!
 </i>
 
 Cory (superclank):
-  + (none)
+  + Finished User, Transaction, Account classes.
+  + Added:
+    -AccountActivity (the page to manage accounts-placeholder, no work done)
+    -LoginActivity (log in works with 'derp' 'derp', going to look into SQL lite networking tomorrow with testbed)
+  * TODO -implement actual String encryption ASAP, enable adminFeature in app, come up with temp storage or set up SQL
 
 Evan (nolasaint):
   + (none)
