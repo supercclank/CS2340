@@ -1,6 +1,8 @@
 package com.example.financialplanner;
 
 import java.util.ArrayList;
+
+import com.example.financialplanner.Transaction.TransactionType;
 //Class that defines an account, keeps track of information specific to this account
 //as well as providing a transaction, deposit, and withdrawal history
 public class Account {
@@ -25,34 +27,34 @@ public class Account {
 	}
 	//adds transaction to correct history (deposit, withdrawal) then performs action
 	private void run(Transaction transaction,int direction){
-		String type = transaction.getType();
+		TransactionType type = transaction.getType();
 		if(direction==1){
-			if (type.equals("deposit")){
+			if (type==TransactionType.DEPOSIT){
 				deposits.add(transaction);
 				deposit(transaction.getValue());
 			}
-			if(type.equals("withdraw")){
+			if(type==TransactionType.WITHDRAW){
 				withdrawals.add(transaction);
 				withdraw(transaction.getValue());
 			}
 		}
 		if(direction==-1){
-			if (type.equals("deposit")){
+			if (type==TransactionType.DEPOSIT){
 				deposits.remove(transaction);
 				deposit(transaction.getValue()*-1);
 			}
-			if(type.equals("withdraw")){
+			if(type==TransactionType.WITHDRAW){
 				withdrawals.remove(transaction);
 				withdraw(transaction.getValue()*-1);
 			}
 		}
 	}
 	//adds deposit to balance
-	private void deposit(int deposit){
+	private void deposit(double deposit){
 		balance+=deposit;
 	}
 	//deducts withdraw from balance
-	private void withdraw(int withdraw){
+	private void withdraw(double withdraw){
 		balance-=withdraw;
 	}
 	//adds transaction to correct history (deposit, withdrawal) then performs action in reverse
