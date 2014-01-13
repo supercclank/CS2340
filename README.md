@@ -8,7 +8,7 @@ Financial Management App (version 0.0)
 Please keep this updated!
 </i>
 
-Cory (superclank):
+Cory (supercclank):
   + Finished User, Transaction, Account classes.
   + Added:
     -AccountActivity (the page to manage accounts-placeholder, no work done)
