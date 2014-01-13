@@ -20,7 +20,7 @@ public class Transaction {
 		this.description = description;
 	}
 	/*NOTE date objects need to be made as follows*
-	Calander c = new GregorianCalendar().getInstance();
+	Calendar c = new GregorianCalendar().getInstance();
 	c.set(2014, Calender.MONTH, DATE);
 	Date d = c.getTime();
 	*/
