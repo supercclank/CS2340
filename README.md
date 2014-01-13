@@ -8,7 +8,7 @@ Financial Management App (version 0.0)
 Please keep this updated!
 </i>
 
-Cory (supercclank):
+Cory (superccclank):
   + Finished User, Transaction, Account classes.
   + Added:
     -AccountActivity (the page to manage accounts-placeholder, no work done)
@@ -24,6 +24,6 @@ Edward (edwardyu236):
 Son (stran7):
   + (none)
 
-Sandeep (sand500):
+Sandyy (sand500):
   + (none)
 
