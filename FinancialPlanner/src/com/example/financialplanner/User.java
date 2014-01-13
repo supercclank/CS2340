@@ -29,6 +29,6 @@ public class User {
 	}
 	//deletes account from this users history
 	public boolean deleteAccount(Account account){
-		return (accounts.remove(accounts.indexOf(account))!=null) ? true : false;
+		return (accounts.remove(account));
 	}
 }
