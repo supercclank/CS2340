@@ -12,11 +12,11 @@ import android.widget.EditText;
 
 
 public class LoginActivity extends Activity {
-	private HashMap<String,User> loginList;
 	private AlertDialog.Builder failedLogIn;
+	private Register register;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		loginList = new HashMap<String,User>();
+		register = new Register();
 		failedLogIn = new AlertDialog.Builder(this)
 		    .setTitle("Invalid login attempt")
 		    .setMessage("An unknown user and password combination was entered")
@@ -25,7 +25,7 @@ public class LoginActivity extends Activity {
 		            // continue with delete
 		        }
 		     });
-		 loginList.put("derp", new User("derp", "derp"));
+		 register.addUser("derp", "derp");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 	}
@@ -33,23 +33,18 @@ public class LoginActivity extends Activity {
 	public void attemptSignIn(View v){
 		EditText userName = (EditText) findViewById(R.id.username);
 		EditText passWord = (EditText) findViewById(R.id.password);
+		String username = userName.getText().toString();
+		String password = passWord.getText().toString();
 		System.out.println(userName.getText().toString());
-		User desiredUser = loginList.get(userName.getText().toString());
-		System.out.println(desiredUser);
-		if(desiredUser==null){
-			//display messageDialogue
-			failedLogIn.show();
-			return;
-		}
-		if(desiredUser.checkPass(passWord.getText().toString())){
+		if(register.checkInformation(username, password)){
 			Intent accountScreen = new Intent(this, AccountActivity.class);
 			startActivity(accountScreen);
 			return;
 		}
 		else{
 			failedLogIn.show();
+			return;
 		}
-		
 	}
 		
 }
