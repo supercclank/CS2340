@@ -1,5 +1,6 @@
 package com.example.financialplanner;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 import android.app.Activity;
@@ -51,6 +52,9 @@ public class LoginActivity extends Activity {
 	}
 	
 	public void registerNewUser(View v){
+		Intent registerNew = new Intent(this, RegistryActivity.class);
+		registerNew.putExtra("users", register);
+		startActivity(registerNew);
 		//registerNewUser = new AlertDialog.Builder(this)
 	    //.setTitle("Invalid login attempt")
 	    //.setView(findViewById(R.layout.registry));
@@ -60,11 +64,11 @@ public class LoginActivity extends Activity {
 //	            // continue with delete
 //	        }
 //	     });
-		LayoutInflater inflater = getLayoutInflater();
-		View dialoglayout = inflater.inflate(R.layout.activity_registry, (ViewGroup) getCurrentFocus());
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setView(dialoglayout);
-		builder.show();
+//		LayoutInflater inflater = getLayoutInflater();
+//		View dialoglayout = inflater.inflate(R.layout.activity_registry, (ViewGroup) getCurrentFocus());
+//		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//		builder.setView(dialoglayout);
+//		builder.show();
 		//registerNewUser.show();
 	}
 	
