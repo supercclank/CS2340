@@ -31,4 +31,8 @@ public class User {
 	public boolean deleteAccount(Account account){
 		return (accounts.remove(account));
 	}
+	//
+	public String getUserName(){
+		return userName;
+	}
 }
