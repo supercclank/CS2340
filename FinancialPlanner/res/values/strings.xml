@@ -6,5 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="prompt_username">Username</string>
     <string name="title_activity_account">AccountActivity</string>
+    <string name="title_activity_registry">RegistryActivity</string>
 
 </resources>
