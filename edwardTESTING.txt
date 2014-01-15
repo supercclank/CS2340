@@ -1,4 +1,4 @@
 testing on github.com
 testing on cory’s computer
 great
-testing command line git
+testing command line
