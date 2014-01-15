@@ -53,7 +53,7 @@ public class LoginActivity extends Activity {
 	
 	public void registerNewUser(View v){
 		Intent registerNew = new Intent(this, RegistryActivity.class);
-		registerNew.putExtra("users", register);
+		//registerNew.putExtra("users", register);
 		startActivity(registerNew);
 		//registerNewUser = new AlertDialog.Builder(this)
 	    //.setTitle("Invalid login attempt")
