@@ -1,5 +1,10 @@
 [
 	{"id":"Register",
+	"admin:"
+		{
+			"username":"admin",
+			"password":"admin"
+		},
 	 "userNames":
 	  	{
 	  		"key":"userName1",
@@ -124,11 +129,6 @@
 			 					},
 		 				}
 	  			}
-	},
-	 "admin:"
-		{
-		"username":"admin",
-		"password":"admin"
 		}
 	}
 ]
