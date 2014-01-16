@@ -1,21 +1,11 @@
 [
-<<<<<<< HEAD
-	{
-	"id":"Register",
-=======
 	{"id":"Register",
->>>>>>> 1364d12716cc54e4c06c6116536dd4ac5100509c
-	"admin:"
+	 "admin:"
 		{
 			"username":"admin",
 			"password":"admin"
-<<<<<<< HEAD
 		}
-	"userNames":
-=======
-		},
 	 "userNames":
->>>>>>> 1364d12716cc54e4c06c6116536dd4ac5100509c
 	  	{
 	  		"key":"userName1",
 	  		"user":
@@ -139,10 +129,6 @@
 			 					},
 		 				}
 	  			}
-<<<<<<< HEAD
 		},
-=======
-		}
->>>>>>> 1364d12716cc54e4c06c6116536dd4ac5100509c
 	}
 ]
