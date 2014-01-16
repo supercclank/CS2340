@@ -18,7 +18,7 @@ public class User {
     }
     //checks to see if passwords match (for log in, need to rewrite, plain text = bad)
     public boolean checkPass(String password){
-        return this.password.equals(password));
+        return this.password.equals(password);
     }
     //adds account to this users history
     public boolean addAccount(Account account){
@@ -26,7 +26,7 @@ public class User {
     }
     //deletes account from this users history
     public boolean deleteAccount(Account account){
-        return (accounts.remove(account));
+        return accounts.remove(account);
     }
     //
     public String getUserName(){
