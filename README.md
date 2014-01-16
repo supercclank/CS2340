@@ -3,12 +3,13 @@ Financial Management App (version 0.0)
 ---
 <h4>Team: InsertTeamName'); DROP TABLE Teams; --</h4>
 ---
+<b>Remember that we are working on In-Line branch!!</b>
+
+---
 
 <i>List which source files you are currently working on
 Please keep this updated!
 </i>
-
-<b>Remember that we are working on In-Line branch!!</b>
 
 Cory (superccclank):
   + Finished User, Transaction, Account classes.
@@ -22,10 +23,10 @@ Evan (nolasaint):
   + Transaction.java - implementing transactionIDs, and ability to search for transaction by it's id.
 
 Edward (edwardyu236):
-  + (none)
+  + In Process - learning Android, reading Cory's code, fixing UI
 
 Son (stran7):
   + (none)
 
 Sandyy (sand500):
-  + (none)
+  + Parsers
