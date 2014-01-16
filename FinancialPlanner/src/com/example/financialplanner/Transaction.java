@@ -2,6 +2,7 @@ package com.example.financialplanner;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.UUID;
 
 public class Transaction {
 	private TransactionType type;
@@ -9,6 +10,7 @@ public class Transaction {
 	private Date dateAdded;
 	private Date dateProcessed;
 	private String description;
+	private final UUID transactionID;
 	//enum for enforcement to be used to classify this transaction
 	public enum TransactionType {WITHDRAW, DEPOSIT}
 	//constructor for transaction
@@ -18,6 +20,7 @@ public class Transaction {
 		this.dateAdded = dateAdded;
 		this.dateProcessed = dateProcessed;
 		this.description = description;
+		transactionID = UUID.randomUUID();
 	}
 	/*NOTE date objects need to be made as follows*
 	Calendar c = new GregorianCalendar().getInstance();
