@@ -68,7 +68,7 @@
                 android:layout_marginTop="16dp"
                 android:paddingLeft="32dp"
                 android:paddingRight="32dp"
-                android:text="Sign In"
+                android:text="@string/button_sign_in"
                 android:onClick="attemptSignIn"/>
             <Button
                 android:id="@+id/register_button"
@@ -78,7 +78,7 @@
                 android:layout_marginTop="16dp"
                 android:paddingLeft="32dp"
                 android:paddingRight="32dp"
-                android:text="Register New User"
+                android:text="@string/button_register"
                 android:onClick="registerNewUser"/>
         </LinearLayout>
     </ScrollView>

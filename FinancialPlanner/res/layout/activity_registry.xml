@@ -5,17 +5,14 @@
 
     <EditText
         android:id="@+id/newuseruser"
-        android:hint="Username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText1"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="165dp"
         android:ems="10"
-        android:inputType="textPassword" >
-
-        <requestFocus />
-    </EditText>
+        android:hint="@string/prompt_username"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/newuserpassword"
@@ -23,10 +20,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/newuseruser"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="21dp"
         android:ems="10"
-        android:hint="Password"
-        android:inputType="textPersonName" />
+        android:hint="@string/prompt_password"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/register_button"
@@ -34,8 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/newuserpassword"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="66dp"
-        android:text="Register as new user"
-        android:onClick="addNewUser"/>
+        android:layout_marginTop="32dp"
+        android:onClick="addNewUser"
+        android:text="@string/button_register_new" />
 
 </RelativeLayout>
