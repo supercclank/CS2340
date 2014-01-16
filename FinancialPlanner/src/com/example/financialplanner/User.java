@@ -1,35 +1,84 @@
 package com.example.financialplanner;
 
 import java.util.ArrayList;
-//Class that defines a user, keeps track of their accounts, username and password
-///TODO - implement encryption of some type for password Storing (plain text = bad)
+
+/**
+ * This class defines a User. Users have usernames and passwords, as well as
+ * Accounts which keep track of Transactions.
+ *
+ * @author Cory
+ */
 public class User {
-    private ArrayList<Account> accounts;
+
+	//TODO - implement encryption of some type for password Storing (plain text = bad)
+
+	private ArrayList<Account> accounts;
     private String userName;
     private String password;
-    public User(String userName, String password){
+
+    /**
+     * Constructs a new User object.
+     *
+     * @param	userName	- this User's username
+     * @param	password	- this User's password
+     */
+    public User(String userName, String password) {
         accounts = new ArrayList<Account>();
         this.userName = userName;
         this.password = password;
+
     }
-    //returns all accounts that belong to this user
-    public ArrayList<Account> getAccounts(){
+
+    /**
+     * Returns a List of all Accounts belonging to this User.
+     *
+     * @return	the List of all this User's Accounts
+     */
+    public ArrayList<Account> getAccounts() {
         return accounts;
+
     }
-    //checks to see if passwords match (for log in, need to rewrite, plain text = bad)
-    public boolean checkPass(String password){
+
+    /**
+     * Returns whether or not the passed string matches this User's password.
+     *
+     * @param	password	- the password to be checked
+     * @return	true if the passed string is the correct password
+     */
+    public boolean checkPass(String password) {
         return this.password.equals(password);
+
     }
-    //adds account to this users history
-    public boolean addAccount(Account account){
+
+    /**
+     * Adds an Account to this User's profile.
+     *
+     * @param	account	- the Account to be added
+     * @return	true if the Account was added / was not already present
+     */
+    public boolean addAccount(Account account) {
         return accounts.add(account);
+
     }
-    //deletes account from this users history
-    public boolean deleteAccount(Account account){
+
+    /**
+     * Deletes an Account from this User's profile.
+     *
+     * @param	account	- the Account to be deleted
+     * @return	true if the Account was present and deleted
+     */
+    public boolean deleteAccount(Account account) {
         return accounts.remove(account);
+
     }
-    //
-    public String getUserName(){
+
+    /**
+     * Returns this User's username.
+     *
+     * @return	this User's username
+     */
+    public String getUserName() {
         return userName;
+
     }
 }
