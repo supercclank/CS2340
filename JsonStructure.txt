@@ -1,6 +1,6 @@
 [
 	{"id":"Register",
-	 "admin:"
+	 "admin":
 		{
 			"username":"admin",
 			"password":"admin"
