@@ -11,60 +11,137 @@ public class Transaction {
 	private Date dateProcessed;
 	private String description;
 	private final UUID transactionID;
-	//enum for enforcement to be used to classify this transaction
+
+	// enum for enforcement to be used to classify this transaction
 	public enum TransactionType {WITHDRAW, DEPOSIT}
-	//constructor for transaction
-	public Transaction(TransactionType type, double value, Date dateAdded, Date dateProcessed, String description){
+
+	/**
+	 * Constructs a new Transaction.
+	 *
+	 * @param	type			- the type of Transaction
+	 * @param	value			- the monetary value of the Transaction
+	 * @param	dateAdded		- the Date this Transaction was made
+	 * @param	dateProcessed	- the Date this Transaction was processed
+	 * @param	description		- a description for this Transaction
+	 */
+	public Transaction(TransactionType type, double value, Date dateAdded,
+			Date dateProcessed, String description) {
 		this.type = type;
 		this.value = value;
 		this.dateAdded = dateAdded;
 		this.dateProcessed = dateProcessed;
 		this.description = description;
 		transactionID = UUID.randomUUID();
+
 	}
+
 	/*NOTE date objects need to be made as follows*
 	Calendar c = new GregorianCalendar().getInstance();
 	c.set(2014, Calender.MONTH, DATE);
 	Date d = c.getTime();
 	*/
 	
-	
-	//returns the type of this transaction
-	public TransactionType getType(){
+	/**
+	 * Returns the TransactionType of this Transaction.
+	 *
+	 * @return	this Transaction's type
+	 */
+	public TransactionType getType() {
 		return type;
+
 	}
-	//returns the monetary value of this transaction
-	public double getValue(){
+
+	/**
+	 * Returns the monetary value of this Transaction.
+	 *
+	 * @return	the monetary value of this Transaction
+	 */
+	public double getValue() {
 		return this.value;
+
 	}
-	//returns the dateAdded
-	public Date getDateAdded(){
+
+	/**
+	 * Returns the Date this Transaction was made.
+	 *
+	 * @return	the Date this Transaction was made
+	 */
+	public Date getDateAdded() {
 		return this.dateAdded;
+
 	}
-	//returns the dateProcessed
-	public Date getDateProcessed(){
+
+	/**
+	 * Returns the Date this Transaction was processed (approved).
+	 *
+	 * @return	the Date this Transaction was processed
+	 */
+	public Date getDateProcessed() {
 		return this.dateProcessed;
+
 	}
-	//returns the description
-	public String getDescription(){
+
+	/**
+	 * Returns the description accompanying this Transaction.
+	 *
+	 * @return	this Transaction's description
+	 */
+	public String getDescription() {
 		return this.description;
+
 	}
-	//checks to see if this transaction took place between a date range
-	private boolean fallsBetween(Date dateOfInterest, Date startDate, Date endDate){
-		if(dateOfInterest.compareTo(startDate)<0){
+
+	/**
+	 * Returns this Transactions's transaction ID.
+	 *
+	 * @return	this Transaction's transaction ID in String form
+	 */
+	public String getTransactionID() {
+		return this.transactionID.toString();
+
+	}
+
+	// Checks to see if this transaction took place between a date range
+	private boolean fallsBetween(Date dateOfInterest, Date startDate,
+			Date endDate) {
+		if (dateOfInterest.compareTo(startDate) < 0) {
 			return false;
+
 		}
-		if(dateOfInterest.compareTo(endDate)>0){
+
+		if (dateOfInterest.compareTo(endDate) > 0) {
 			return false;
+
 		}
+
 		return true;
+
 	}
-	//checks if this transaction processDate took place between a date range
-	public boolean processedBetween(Date startDate, Date endDate){
+
+	/**
+	 * Checks if this Transaction was processed in a specified range of dates.
+	 *
+	 * @param	startDate	- the lower bound for the date range
+	 * @param	endDate		- the upper bound for the date range
+	 * @return	true if the Transaction was processed within the specified
+	 * 			period of time
+	 */
+	public boolean processedBetween(Date startDate, Date endDate) {
 		return this.fallsBetween(this.dateProcessed, startDate, endDate);
+
 	}
-	//checks if this transaction addedDate took place between a date range
-		public boolean addedBetween(Date startDate, Date endDate){
-			return this.fallsBetween(this.dateAdded, startDate, endDate);
-		}
+
+	/**
+	 * Checks if this Transaction was added in a specified range of dates.
+	 *
+	 * @param	startDate	- the lower bound for the date range
+	 * @param	endDate		- the upper bound for the date range
+	 * @return	true if the Transaction was added within the specified period
+	 * 			of time
+	 */
+	public boolean addedBetween(Date startDate, Date endDate) {
+		return this.fallsBetween(this.dateAdded, startDate, endDate);
+
+	}
+
 }
