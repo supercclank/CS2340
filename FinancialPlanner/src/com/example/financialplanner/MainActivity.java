@@ -5,6 +5,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 
+/**
+ * The entry point class for this program. Runs everything.
+ *
+ * @author Cory
+ */
 public class MainActivity extends Activity {
 
 	@Override
