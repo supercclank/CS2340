@@ -34,21 +34,22 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.activity_login);
 	}
 
-	public void attemptSignIn(View v){
+	public void attemptSignIn(View v) {
 		EditText userName = (EditText) findViewById(R.id.username);
 		EditText passWord = (EditText) findViewById(R.id.password);
 		String username = userName.getText().toString();
 		String password = passWord.getText().toString();
 		System.out.println(userName.getText().toString());
-		if(register.checkInformation(username, password)){
+		if(register.checkInformation(username, password)) {
 			Intent accountScreen = new Intent(this, AccountActivity.class);
 			startActivity(accountScreen);
 			return;
-		}
-		else{
+		} else{
 			failedLogIn.show();
 			return;
+
 		}
+
 	}
 	
 	public void registerNewUser(View v){
