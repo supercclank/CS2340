@@ -4,12 +4,18 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
+/**
+ * The Activity handling User registration.
+ *
+ * @author Cory
+ */
 public class RegistryActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_registry);
+
 	}
 
 	@Override
@@ -17,6 +23,7 @@ public class RegistryActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.registry, menu);
 		return true;
+
 	}
 
 }
