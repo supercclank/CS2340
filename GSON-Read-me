@@ -1,0 +1,16 @@
+This is how to use GSON...
+
+
+to get the json string generated, you call toJson with an instance of gson and pass the id you want to use to fetch and the object to be json'd
+
+EXAMPLE
+
+String jsonString = gsonInstance.toJson("StringID",ObjectToEncode);
+
+to get an object generated, you call fromJson with an instance of gson and gson and pass the json string and the id you want to get out
+
+EXAMPLE
+
+Object javaObject - gsonInstance.fromJson(jsonString,"StringID");
+
+ALSO API documentation can be found @ http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/index.html
