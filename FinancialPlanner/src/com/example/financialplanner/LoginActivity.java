@@ -3,6 +3,8 @@ package com.example.financialplanner;
 import java.io.Serializable;
 import java.util.HashMap;
 
+import com.google.gson.Gson;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -22,9 +24,10 @@ public class LoginActivity extends Activity {
 	private AlertDialog.Builder failedLogIn;
 	private AlertDialog.Builder registerNewUser;
 	private Register register;
-
+	private Gson gson;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		gson = new Gson();
 		register = new Register();
 		failedLogIn = new AlertDialog.Builder(this)
 			.setTitle("Invalid login attempt")
@@ -52,11 +55,11 @@ public class LoginActivity extends Activity {
 		EditText passWord = (EditText) findViewById(R.id.password);
 		String username = userName.getText().toString();
 		String password = passWord.getText().toString();
-
+		String jsonString = gson.toJson(register);
 		System.out.println(userName.getText().toString());
 		if(register.checkInformation(username, password)) {
 			Intent accountScreen = new Intent(this, AccountActivity.class);
-
+			accountScreen.putExtra("register", jsonString);
 			startActivity(accountScreen);
 
 		} else {
