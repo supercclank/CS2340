@@ -18,7 +18,7 @@ import android.widget.EditText;
 /**
  * The Activity controlling login and new User registration.
  *
- * @author Chris
+ * @author Cory
  */
 public class LoginActivity extends Activity {
 	private AlertDialog.Builder failedLogIn;
@@ -69,35 +69,5 @@ public class LoginActivity extends Activity {
 
 	}
 
-	/**
-	 * Registers a new User.
-	 *
-	 * @param	v	- the View with which to display registration info
-	 */
-	public void registerNewUser(View v) {
-		Intent registerNew = new Intent(this, RegistryActivity.class);
-//		registerNew.putExtra("users", register);
-		startActivity(registerNew);
-//		registerNewUser = new AlertDialog.Builder(this)
-//		.setTitle("Invalid login attempt")
-//		.setView(findViewById(R.layout.registry));
-//		.setMessage("An unknown user and password combination was entered")
-//	    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-//	        public void onClick(DialogInterface dialog, int which) { 
-//	            // continue with delete
-//	        }
-//	     });
-//		LayoutInflater inflater = getLayoutInflater();
-//		View dialoglayout = inflater.inflate(R.layout.activity_registry, (ViewGroup) getCurrentFocus());
-//		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//		builder.setView(dialoglayout);
-//		builder.show();
-//		registerNewUser.show();
-	}
-
-//	public void addNewUser(View v) {
-//		System.out.println("It worked?");
-//
-//	}
 		
 }
