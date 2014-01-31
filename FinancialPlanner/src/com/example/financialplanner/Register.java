@@ -7,14 +7,14 @@ import java.util.HashMap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Register implements JsonParser {
+public class Register {
 	private HashMap<String, User> userNames; 
 	private Admin admin;
 
 	//creates register object, initializes the HashMap and creates a default admin
 	public Register() {
 		userNames = new HashMap<String, User>();
-		admin = new Admin("admin", "admin1");
+		admin = new Admin("admin_", "admin1");
 
 	}
 
@@ -66,42 +66,6 @@ public class Register implements JsonParser {
 	public boolean checkInformation(String username, String password) {
 		User user = userNames.get(username);
 		return (user==null) ? false : user.checkPass(password);
-
-	}
-
-	//not needed or used, just required by Parcelable interface
-//	@Override
-//	public int describeContents() {
-//		return 0;
-//	}
-//	//figure out the best way to flatten the map correctly
-//	@Override
-//	public void writeToParcel(Parcel out, int flags) {
-//		//out.writem
-//	}
-//	 public static final Parcelable.Creator<Register> CREATOR
-//			     = new Parcelable.Creator<Register>() {
-//			 public Register createFromParcel(Parcel in) {
-//			     return new Register(in);
-//			 }
-//			
-//			 public Register[] newArray(int size) {
-//			     return new Register[size];
-//			 }
-//			};
-
-	@Override
-	public Object toObject(String json) {
-		ArrayList<User> users = new ArrayList<User>();
-		//implement the string logic to figure out how many users/loop params
-		return new Register();
-
-	}
-
-	@Override
-	public String toJson(Object t) {
-		// TODO Auto-generated method stub
-		return null;
 
 	}
 

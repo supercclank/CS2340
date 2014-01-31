@@ -39,7 +39,7 @@ public class LoginActivity extends Activity {
 				}
 		     });
 
-		register.addUser("derp", "derp");
+		register.addUser("admin", "pass123");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
