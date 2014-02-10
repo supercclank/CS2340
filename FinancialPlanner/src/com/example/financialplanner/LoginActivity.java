@@ -25,10 +25,10 @@ public class LoginActivity extends Activity {
 	private AlertDialog.Builder registerNewUser;
 	private Register register;
 	private Gson gson;
+	private String json;
+	private String jsonString;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		gson = new Gson();
-		register = new Register();
 		failedLogIn = new AlertDialog.Builder(this)
 			.setTitle("Invalid login attempt")
 			.setMessage("An unknown user and password combination was entered")
@@ -38,7 +38,9 @@ public class LoginActivity extends Activity {
 					
 				}
 		     });
-
+		gson = new Gson();
+		json = getIntent().getStringExtra("register");
+		register = gson.fromJson(json, Register.class);
 		register.addUser("admin", "pass123");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
@@ -51,11 +53,12 @@ public class LoginActivity extends Activity {
 	 * @param	v	- the View on which to display the login screen
 	 */
 	public void attemptSignIn(View v) {
+		System.out.println(register);
 		EditText userName = (EditText) findViewById(R.id.username);
 		EditText passWord = (EditText) findViewById(R.id.password);
 		String username = userName.getText().toString();
 		String password = passWord.getText().toString();
-		String jsonString = gson.toJson(register);
+		jsonString = gson.toJson(register);
 		System.out.println(userName.getText().toString());
 		if(register.checkInformation(username, password)) {
 			Intent accountScreen = new Intent(this, AccountActivity.class);
@@ -69,5 +72,13 @@ public class LoginActivity extends Activity {
 
 	}
 
+	public void onBackPressed(){
+	    finish();
+	    Intent intent = new Intent(this, MainActivity.class);
+	    jsonString = gson.toJson(register);
+	    intent.putExtra("register", jsonString);
+	    System.out.println("back button pressed");
+	    startActivity(intent);
+	}
 		
 }
