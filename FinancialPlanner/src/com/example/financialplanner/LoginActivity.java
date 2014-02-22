@@ -41,7 +41,6 @@ public class LoginActivity extends Activity {
 		gson = new Gson();
 		json = getIntent().getStringExtra("register");
 		register = gson.fromJson(json, Register.class);
-		register.addUser("admin", "pass123");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 

@@ -25,7 +25,7 @@ public class Admin {
 	}
 
 	//returns a new user using the old userName with a new password, to over-write user in storage hashmap
-	public User resetPassword(User user, String password) {
+	public User  resetPassword(User user, String password) {
 		User newUser = new User(user.getUserName(),password);
 		return newUser;
 

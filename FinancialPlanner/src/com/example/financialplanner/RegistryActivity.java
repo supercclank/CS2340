@@ -17,7 +17,8 @@ import android.widget.EditText;
  * @author Cory
  */
 public class RegistryActivity extends Activity {
-	private AlertDialog.Builder failedLogIn;
+	private AlertDialog.Builder failedRegister;
+	private AlertDialog.Builder successfulRegister;
 	private AlertDialog.Builder registerNewUser;
 	private Register register;
 	private Gson gson;
@@ -30,15 +31,24 @@ public class RegistryActivity extends Activity {
 		gson = new Gson();
 		json = getIntent().getStringExtra("register");
 		register = gson.fromJson(json, Register.class);
-		failedLogIn = new AlertDialog.Builder(this)
-			.setTitle("Invalid login attempt")
-			.setMessage("An unknown user and password combination was entered")
+		failedRegister = new AlertDialog.Builder(this)
+			.setTitle("Invalid registration attempt")
+			.setMessage("Username entered is already taken")
 			.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) { 
 					// continue with delete
 					
 				}
 		     });
+		successfulRegister = new AlertDialog.Builder(this)
+		.setTitle("Valid registration attempt")
+		.setMessage("A new user was successfully created!")
+		.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) { 
+				// continue with delete
+				
+			}
+	     });
 	}
 
 	@Override
@@ -55,8 +65,12 @@ public class RegistryActivity extends Activity {
 		EditText passWord = (EditText) findViewById(R.id.newuserpassword);
 		String username = userName.getText().toString();
 		String password = passWord.getText().toString();
-		System.out.println(register);
-		register.addUser(username, password);
+		if (register.addUser(username, password)){
+			successfulRegister.show();
+		}
+		else{
+			failedRegister.show();
+		}
 	}
 	
 	public void onBackPressed(){

@@ -24,7 +24,9 @@ public class MainActivity extends Activity {
 		json = getIntent().getStringExtra("register");
 		register = gson.fromJson(json, Register.class);
 		if (register==null){
-		register = new Register();
+			register = new Register();
+			
+			System.out.println(register.addUser("admin", "pass123"));
 		}
 		jsonString = gson.toJson(register);
 		super.onCreate(savedInstanceState);
