@@ -36,7 +36,16 @@ public class Account {
 		 return transactions.add(transaction);
 
 	}
-
+	
+	public boolean equals(Object o){
+		if (o == null) {
+			return false;
+		}
+		if (!(o instanceof Account)) {
+			return false;
+		}
+		return (this.name.equals(((Account)o).name) || this.displayName.equals(((Account)o).displayName));
+	}
 	//adds transaction to correct history (deposit, withdrawal) then performs action
 	private void run(Transaction transaction,int direction) {
 		TransactionType type = transaction.getType();
@@ -97,7 +106,7 @@ public class Account {
 	}
 	
 	public String toString() {
-		return "name: " + name + " displayname: " + displayName;
+		return "name: " + name + " displayname: " + displayName + " balance: " + balance + " interest rate: " + interestRate;
 	}
 
 }
