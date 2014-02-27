@@ -28,7 +28,7 @@ public class RegistryActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_registry);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		//getActionBar().setDisplayHomeAsUpEnabled(true);
 		gson = new Gson();
 		json = getIntent().getStringExtra("register");
 		register = gson.fromJson(json, Register.class);

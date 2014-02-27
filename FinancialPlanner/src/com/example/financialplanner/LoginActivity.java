@@ -29,7 +29,7 @@ public class LoginActivity extends Activity {
 	private String jsonString;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		//getActionBar().setDisplayHomeAsUpEnabled(true);
 		failedLogIn = new AlertDialog.Builder(this)
 			.setTitle("Invalid login attempt")
 			.setMessage("An unknown user and password combination was entered")
