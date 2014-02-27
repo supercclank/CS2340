@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,8 @@ public class AccountActivity extends Activity {
 	private List<Button> buttons;
 	private LinearLayout accountPane;
 	private LinearLayout layout;
+	private String jsonString;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -47,6 +50,13 @@ public class AccountActivity extends Activity {
 	    layout.addView(accountDisplay);
 	    layout.addView(accountName);
 	    createAccount.setView(layout);
+	    System.out.println(register.getUser().getAccounts());
+	    for (Account a: register.getUser().getAccounts()) {
+	    	Button b = new Button(AccountActivity.this);
+            b.setText(a.getDisplayName());
+            b.setTag(a.getName());
+            accountPane.addView(b);
+	    }
 	    createAccount.setNegativeButton("OK", new DialogInterface.OnClickListener() { 
 	        @Override
 	        public void onClick(DialogInterface dialog, int which) {
@@ -76,6 +86,16 @@ public class AccountActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.account, menu);
 		return true;
+	}
+	
+	public void onBackPressed(){
+	    finish();
+	    Intent intent = new Intent(this, LoginActivity.class);
+	    jsonString = gson.toJson(register);
+	    System.out.println(jsonString);
+	    intent.putExtra("register", jsonString);
+	    System.out.println("back button pressed");
+	    startActivity(intent);
 	}
 	
 	public void addAccount(View v){

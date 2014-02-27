@@ -22,6 +22,13 @@ public class Account {
 		this.interestRate = interestRate;
 
 	}
+	public String getName() {
+		return name;
+	}
+	
+	public String getDisplayName() {
+		return displayName;
+	}
 
 	//runs transaction and adds it to history
 	public boolean performTransaction(Transaction transaction) {
