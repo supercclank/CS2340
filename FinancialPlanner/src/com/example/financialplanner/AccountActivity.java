@@ -11,6 +11,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -24,7 +25,8 @@ public class AccountActivity extends Activity {
 	private EditText accountName;
 	private View v;
 	private List<Button> buttons;
-	protected LinearLayout accountPane;
+	private LinearLayout accountPane;
+	private LinearLayout layout;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,7 +42,7 @@ public class AccountActivity extends Activity {
 		accountName = new EditText(this);
 		accountDisplay.setHint("Display Name");
 		accountName.setHint("Detailed Account Name");
-		LinearLayout layout = new LinearLayout(this);
+		layout = new LinearLayout(this);
 	    layout.setOrientation(LinearLayout.VERTICAL);
 	    layout.addView(accountDisplay);
 	    layout.addView(accountName);
@@ -77,6 +79,14 @@ public class AccountActivity extends Activity {
 	}
 	
 	public void addAccount(View v){
+		//createAccount.removeView();
+		//createAccount.removeView();
+		ViewGroup g = ((ViewGroup) layout.getParent());
+		if (g != null) {
+			g.removeView(layout);
+		}
+		
+		createAccount.setView(layout);
 		createAccount.show();
 		//user.addAccount(account);
 	}

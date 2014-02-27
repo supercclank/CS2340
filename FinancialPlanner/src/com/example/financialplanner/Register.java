@@ -70,7 +70,7 @@ public class Register {
 	//checks to see if info enters matches a user
 	public boolean checkInformation(String username, String password) {
 		User user = userNames.get(username);
-		if (user.checkPass(password)){
+		if (user !=null && user.checkPass(password)){
 			currentUser = user;
 			System.out.println("the current user is : "+user);
 		}
