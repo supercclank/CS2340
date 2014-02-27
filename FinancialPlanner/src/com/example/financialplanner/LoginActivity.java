@@ -29,7 +29,7 @@ public class LoginActivity extends Activity {
 	private String jsonString;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		//getActionBar().setDisplayHomeAsUpEnabled(true);
 		failedLogIn = new AlertDialog.Builder(this)
 			.setTitle("Invalid login attempt")
 			.setMessage("An unknown user and password combination was entered")
@@ -53,6 +53,7 @@ public class LoginActivity extends Activity {
 	 * @param	v	- the View on which to display the login screen
 	 */
 	public void attemptSignIn(View v) {
+		System.out.println("attempting to sign in");
 		System.out.println(register);
 		EditText userName = (EditText) findViewById(R.id.username);
 		EditText passWord = (EditText) findViewById(R.id.password);

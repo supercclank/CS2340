@@ -22,6 +22,13 @@ public class Account {
 		this.interestRate = interestRate;
 
 	}
+	public String getName() {
+		return name;
+	}
+	
+	public String getDisplayName() {
+		return displayName;
+	}
 
 	//runs transaction and adds it to history
 	public boolean performTransaction(Transaction transaction) {
@@ -87,6 +94,10 @@ public class Account {
 	//figure out how to deal with this? (monthly interest, assume one month or?)
 	public void performGainInterest() {
 		
+	}
+	
+	public String toString() {
+		return "name: " + name + " displayname: " + displayName;
 	}
 
 }

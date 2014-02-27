@@ -23,7 +23,7 @@ public class User {
      * @param	password	- this User's password
      */
     public User(String userName, String password) {
-        accounts = new ArrayList<Account>();
+        this.accounts = new ArrayList<Account>();
         this.userName = userName;
         this.password = password;
 
@@ -57,7 +57,10 @@ public class User {
      * @return	true if the Account was added / was not already present
      */
     public boolean addAccount(Account account) {
-        return accounts.add(account);
+    	System.out.println(account);
+    	accounts.add(account);
+    	System.out.println(accounts);
+    	return false;
 
     }
 
@@ -80,5 +83,9 @@ public class User {
     public String getUserName() {
         return userName;
 
+    }
+    
+    public String toString() {
+    	return userName + " w/ accs: " + accounts;
     }
 }

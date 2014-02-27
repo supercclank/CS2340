@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C9E7FF"
+    android:background="#B7F7D0"
     tools:context=".RegistryActivity" >
 
     
