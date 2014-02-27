@@ -5,8 +5,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="18" />
+        android:minSdkVersion="11"
+        android:targetSdkVersion="19" />
 
     <application
         android:allowBackup="true"
@@ -25,14 +25,17 @@
         <activity
             android:name="com.example.financialplanner.LoginActivity"
             android:label="@string/title_activity_login"
+            android:parentActivityName="com.example.financialplanner.MainActivity"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity
             android:name="com.example.financialplanner.AccountActivity"
+            android:parentActivityName="com.example.financialplanner.LoginActivity"
             android:label="@string/title_activity_account" >
         </activity>
         <activity
             android:name="com.example.financialplanner.RegistryActivity"
+            android:parentActivityName="com.example.financialplanner.MainActivity"
             android:label="@string/title_activity_registry" >
         </activity>
     </application>
