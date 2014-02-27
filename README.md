@@ -23,7 +23,12 @@ Evan (nolasaint):
   + Transaction.java - implementing transactionIDs, and ability to search for transaction by it's id.
 
 Edward (edwardyu236):
-  + In Process - learning Android, reading Cory's code, fixing UI
+  + User Interface
+  + Debugging!
+  * TODO
+  + Turn hardcoded Strings into String resources
+  * Wish List
+  + Internationalization
 
 Son (stran7):
   + (none)
