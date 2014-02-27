@@ -65,11 +65,13 @@ public class RegistryActivity extends Activity {
 		EditText passWord = (EditText) findViewById(R.id.newuserpassword);
 		String username = userName.getText().toString();
 		String password = passWord.getText().toString();
-		if (register.addUser(username, password)){
-			successfulRegister.show();
-		}
-		else{
-			failedRegister.show();
+		if (!(password.equals("") || username.equals(""))) {
+			if (register.addUser(username, password)){
+				successfulRegister.show();
+			}
+			else{
+				failedRegister.show();
+			}
 		}
 	}
 	
