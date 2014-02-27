@@ -10,12 +10,11 @@ import android.os.Parcelable;
 public class Register {
 	private HashMap<String, User> userNames; 
 	private Admin admin;
-
+	private User currentUser;
 	//creates register object, initializes the HashMap and creates a default admin
 	public Register() {
 		userNames = new HashMap<String, User>();
 		admin = new Admin("admin_", "admin1");
-
 	}
 
 //	private Register(Parcel in){
@@ -27,7 +26,6 @@ public class Register {
 		for (int x=0; x < users.size(); x++) {
 			User u = users.get(x);
 			userNames.put(u.getUserName(), u);
-
 		}
 
 	}
@@ -61,10 +59,21 @@ public class Register {
 		return true;
 
 	}
+	
+	public void resetUser(){
+		currentUser = null;
+	}
 
+	protected User getUser(){
+		return currentUser;
+	}
 	//checks to see if info enters matches a user
 	public boolean checkInformation(String username, String password) {
 		User user = userNames.get(username);
+		if (user.checkPass(password)){
+			currentUser = user;
+			System.out.println("the current user is : "+user);
+		}
 		return (user==null) ? false : user.checkPass(password);
 
 	}

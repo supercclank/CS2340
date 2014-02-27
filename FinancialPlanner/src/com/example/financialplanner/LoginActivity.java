@@ -57,9 +57,9 @@ public class LoginActivity extends Activity {
 		EditText passWord = (EditText) findViewById(R.id.password);
 		String username = userName.getText().toString();
 		String password = passWord.getText().toString();
-		jsonString = gson.toJson(register);
 		System.out.println(userName.getText().toString());
 		if(register.checkInformation(username, password)) {
+			jsonString = gson.toJson(register);
 			Intent accountScreen = new Intent(this, AccountActivity.class);
 			accountScreen.putExtra("register", jsonString);
 			startActivity(accountScreen);

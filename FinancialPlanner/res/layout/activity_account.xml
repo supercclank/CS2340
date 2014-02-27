@@ -8,9 +8,23 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AccountActivity" >
 
-    <TextView
+    <Button
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Success" />
+        android:layout_marginTop="64dp"
+        android:text="Add New Account"
+        android:onClick="addAccount"/>
+
+    <LinearLayout
+        android:id="@+id/accountList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/button1"
+        android:layout_below="@+id/button1"
+        android:layout_marginRight="13dp"
+        android:layout_marginTop="197dp"
+        android:orientation="vertical" >
+    </LinearLayout>
 
 </RelativeLayout>
