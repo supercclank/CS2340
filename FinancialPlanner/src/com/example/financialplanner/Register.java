@@ -66,7 +66,7 @@ public class Register {
 	}
 
 	protected User getUser(){
-		return currentUser;
+		return userNames.get(currentUser.getUserName());
 	}
 	//checks to see if info enters matches a user
 	public boolean checkInformation(String username, String password) {

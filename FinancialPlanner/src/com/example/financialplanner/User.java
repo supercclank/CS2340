@@ -57,9 +57,10 @@ public class User {
      * @return	true if the Account was added / was not already present
      */
     public boolean addAccount(Account account) {
-    	System.out.println(account);
-    	accounts.add(account);
-    	System.out.println(accounts);
+    	if (accounts.indexOf(account)<0){
+    		accounts.add(account);
+    		return true;
+    		}
     	return false;
 
     }
@@ -72,7 +73,6 @@ public class User {
      */
     public boolean deleteAccount(Account account) {
         return accounts.remove(account);
-
     }
 
     /**
