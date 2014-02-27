@@ -11,5 +11,6 @@
     <string name="button_sign_in">Sign In</string>
     <string name="button_register">Register New User</string>
     <string name="button_register_new">Register as New User</string>
+    <string name="title_activity_detail">DetailActivity</string>
 
 </resources>
