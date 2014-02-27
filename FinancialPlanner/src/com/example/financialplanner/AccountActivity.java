@@ -61,8 +61,8 @@ public class AccountActivity extends Activity {
 	        @Override
 	        public void onClick(DialogInterface dialog, int which) {
 	            String displayName = accountDisplay.getText().toString();
-	            String accountName = accountDisplay.getText().toString();
-	            Account account = new Account(accountName, accountName, 0, 0);
+	            String accountNameString = accountName.getText().toString();
+	            Account account = new Account(accountNameString, displayName, 0, 0);
 	            //System.out.println(register.getUser());
 	            //boolean bb = register.checkInformation("admin", "pass123");
 	            //System.out.println(bb);

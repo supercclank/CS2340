@@ -3,6 +3,7 @@ package com.example.financialplanner;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -76,6 +77,18 @@ public class Register {
 		}
 		return (user==null) ? false : user.checkPass(password);
 
+	}
+	
+	public String toString() {
+		String s = "==Begin Register==";
+		for(Entry<String, User> entry : userNames.entrySet()) {
+		    String key = entry.getKey();
+		    User value = entry.getValue();
+
+		    s = s + "\n" + key + "" + value;
+		}
+		s = s + "\n==End Register==";
+		return s;
 	}
 
 }

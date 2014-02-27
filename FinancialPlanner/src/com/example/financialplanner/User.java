@@ -57,6 +57,7 @@ public class User {
      * @return	true if the Account was added / was not already present
      */
     public boolean addAccount(Account account) {
+    	System.out.println(account);
     	accounts.add(account);
     	System.out.println(accounts);
     	return false;
@@ -82,5 +83,9 @@ public class User {
     public String getUserName() {
         return userName;
 
+    }
+    
+    public String toString() {
+    	return userName + " w/ accs: " + accounts;
     }
 }

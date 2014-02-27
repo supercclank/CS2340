@@ -53,6 +53,7 @@ public class LoginActivity extends Activity {
 	 * @param	v	- the View on which to display the login screen
 	 */
 	public void attemptSignIn(View v) {
+		System.out.println("attempting to sign in");
 		System.out.println(register);
 		EditText userName = (EditText) findViewById(R.id.username);
 		EditText passWord = (EditText) findViewById(R.id.password);

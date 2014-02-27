@@ -95,5 +95,9 @@ public class Account {
 	public void performGainInterest() {
 		
 	}
+	
+	public String toString() {
+		return "name: " + name + " displayname: " + displayName;
+	}
 
 }
