@@ -26,17 +26,24 @@
             android:name="com.example.financialplanner.LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible" >
-            <!--android:parentActivityName="com.example.financialplanner.MainActivity"-->
+
+            <!-- android:parentActivityName="com.example.financialplanner.MainActivity" -->
         </activity>
         <activity
             android:name="com.example.financialplanner.AccountActivity"
             android:label="@string/title_activity_account" >
-            <!--android:parentActivityName="com.example.financialplanner.LoginActivity"-->
+
+            <!-- android:parentActivityName="com.example.financialplanner.LoginActivity" -->
         </activity>
         <activity
             android:name="com.example.financialplanner.RegistryActivity"
             android:label="@string/title_activity_registry" >
-            <!--android:parentActivityName="com.example.financialplanner.MainActivity"-->
+
+            <!-- android:parentActivityName="com.example.financialplanner.MainActivity" -->
+        </activity>
+        <activity
+            android:name="com.example.financialplanner.DetailActivity"
+            android:label="@string/title_activity_detail" >
         </activity>
     </application>
 
