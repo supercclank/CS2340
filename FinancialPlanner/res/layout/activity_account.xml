@@ -18,14 +18,20 @@
         android:text="Add New Account"
         android:onClick="addAccount"/>
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:layout_below="@+id/button1"
+    android:layout_centerHorizontal="true"
+    android:background="@drawable/border">
+   
     <LinearLayout
         android:id="@+id/accountList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical" >
     </LinearLayout>
+</ScrollView>
+
 
 </RelativeLayout>
