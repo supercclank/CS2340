@@ -1,37 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#C9E7FF"
+    tools:context=".RegistryActivity" >
 
-    <EditText
-        android:id="@+id/newuseruser"
+    
+    <!-- Login progress -->
+
+    <LinearLayout
+        android:id="@+id/login_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="165dp"
-        android:ems="10"
-        android:hint="@string/prompt_username"
-        android:inputType="textPersonName" />
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone" >
 
-    <EditText
-        android:id="@+id/newuserpassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/newuseruser"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:hint="@string/prompt_password"
-        android:inputType="textPassword" />
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp" />
 
-    <Button
-        android:id="@+id/register_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/newuserpassword"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:onClick="addNewUser"
-        android:text="@string/button_register_new" />
+        <TextView
+            android:id="@+id/login_status_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/login_progress_signing_in"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+    
+    <!-- Register form -->
+    <ScrollView
+        android:id="@+id/register_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
-</RelativeLayout>
+        <LinearLayout
+            style="@style/LoginFormContainer"
+            android:orientation="vertical" >
+            
+	    <EditText
+	        android:id="@+id/newuseruser"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/prompt_username"
+	        android:inputType="textPersonName" />
+	    
+	    <!-- android:ems="10" -->
+	
+	    <EditText
+	        android:id="@+id/newuserpassword"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/prompt_password"
+	        android:inputType="textPassword" />
+	    <!-- android:ems="10" -->
+	
+	    <Button
+	        android:id="@+id/register_button"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="right"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:onClick="addNewUser"
+	        android:text="@string/button_register_new" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
