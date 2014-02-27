@@ -25,7 +25,8 @@ Evan (nolasaint):
 Edward (edwardyu236):
   + User Interface
   + Debugging!
-  * TODO
+  + Up/Back Buttons that work
+  * TODO In future
   + Turn hardcoded Strings into String resources
   * Wish List
   + Internationalization
