@@ -31,7 +31,6 @@ public class AccountActivity extends Activity {
 	private EditText interestRate;
 	private EditText startingBalance;
 	private AlertDialog.Builder accountTaken;
-	private View v;
 	private List<Button> buttons;
 	private LinearLayout accountPane;
 	private LinearLayout layout;
@@ -94,7 +93,6 @@ public class AccountActivity extends Activity {
 					 System.out.println("back button pressed");
 					 //register.resetUser();
 					 startActivity(intent);
-					
 				}
             	
             });
