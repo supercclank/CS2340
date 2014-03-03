@@ -14,12 +14,22 @@ public class Account {
 	private ArrayList<Transaction> deposits;
 	private ArrayList<Transaction> withdrawals;
 
+	/**
+	 * 
+	 * @param name - name of this account
+	 * @param displayName - name of this account
+	 * @param balance - starting balance of this account
+	 * @param interestRate -starting interest rate of this account
+	 */
 	public Account(String name, String displayName, double balance, double interestRate){
 		transactions = new ArrayList<Transaction>();
 		this.name = name;
 		this. displayName = displayName;
 		this.balance = balance;
 		this.interestRate = interestRate;
+		transactions = new ArrayList<Transaction>();
+		deposits = new ArrayList<Transaction>();
+		withdrawals = new ArrayList<Transaction>();
 
 	}
 	public String getName() {
