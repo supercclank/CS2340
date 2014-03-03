@@ -19,7 +19,6 @@ import android.widget.EditText;
 public class RegistryActivity extends Activity {
 	private AlertDialog.Builder failedRegister;
 	private AlertDialog.Builder successfulRegister;
-	private AlertDialog.Builder registerNewUser;
 	private Register register;
 	private Gson gson;
 	private String json;
