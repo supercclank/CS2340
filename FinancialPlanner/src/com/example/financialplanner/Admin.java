@@ -1,7 +1,5 @@
 package com.example.financialplanner;
 
-import java.util.HashMap;
-
 public class Admin {
 	private String username;
 	private String password;
