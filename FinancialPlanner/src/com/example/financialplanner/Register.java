@@ -1,12 +1,7 @@
 package com.example.financialplanner;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
-
-import android.os.Parcel;
-import android.os.Parcelable;
 
 public class Register {
 	private HashMap<String, User> userNames; 
@@ -16,19 +11,6 @@ public class Register {
 	public Register() {
 		userNames = new HashMap<String, User>();
 		admin = new Admin("admin_", "admin1");
-	}
-
-//	private Register(Parcel in){
-//        this.userNames = null;
-//    }
-
-	private Register(ArrayList<User> users) {
-		userNames = new HashMap<String, User>();
-		for (int x=0; x < users.size(); x++) {
-			User u = users.get(x);
-			userNames.put(u.getUserName(), u);
-		}
-
 	}
 
 	//makes a new user and adds it to the HashMap
