@@ -185,6 +185,8 @@ public class DetailActivity extends Activity {
 				addTransaction.show();
 			}
 	     });
+	   int index = register.getUser().getAccounts().indexOf(account);
+	   account = register.getUser().getAccounts().get(index);
 	}
 
 	@Override
