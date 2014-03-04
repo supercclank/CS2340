@@ -3,7 +3,9 @@ package com.example.financialplanner;
 import java.util.Date;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
 import com.google.gson.Gson;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -13,7 +15,10 @@ import android.text.InputType;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -33,17 +38,18 @@ public class DetailActivity extends Activity {
 	private DatePicker addedDatePicker;
 	private DatePicker processedDatePicker;
 	private Spinner transactionType;
-	private LinearLayout transactionPane;
 	private LinearLayout layout;
 	private ScrollView scrollPane;
 	private TextView dateAddedPrompt;
 	private TextView dateProcessedPrompt;
 	private TextView transactionTypePrompt;
-	
+	private AlertDialog.Builder transactionError;
+	private LinearLayout transactionPane;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detail);
+		transactionPane = (LinearLayout) findViewById(R.id.transactionList);
 		gson = new Gson();
 		json = getIntent().getStringExtra("register");
 		register = gson.fromJson(json, Register.class);
@@ -52,6 +58,7 @@ public class DetailActivity extends Activity {
 		TextView t =  (TextView) findViewById(R.id.detailViewTextField);
 		t.setText(account.toString());
 		addTransaction = new AlertDialog.Builder(this);
+		transactionError = new AlertDialog.Builder(this);
 		addTransaction.setTitle("Add Transaction Creation Form");
 		transactionName = new EditText(this);
 		transactionName.setHint("Enter Descriptive Transaction Name Here");
@@ -83,6 +90,33 @@ public class DetailActivity extends Activity {
 	    scrollPane = new ScrollView(this);
 	    scrollPane.addView(layout);
 	    addTransaction.setView(scrollPane);
+	    for (Transaction transact: account.getTransactions()) {
+	    	Button b = new Button(DetailActivity.this);
+            b.setText(transact.getDescription());
+            transactionPane.addView(b);
+            LayoutParams params =  b.getLayoutParams();
+            params.width = LayoutParams.MATCH_PARENT;
+            b.setLayoutParams(params);
+            b.setOnClickListener(new OnClickListener(){
+
+				@Override
+				public void onClick(View v) {
+//					 Button b = (Button) v;
+//					 finish();
+//					 //Intent intent = new Intent(DetailActivity.this, DetailActivity.class);
+//					 jsonString = gson.toJson(register);
+//					 System.out.println(jsonString);
+//					 intent.putExtra("register", jsonString);
+//					 //b.getTag().toString(),,0,0)
+//					 intent.putExtra("account", gson.toJson(register.getUser().getAccounts().get(register.getUser().getAccounts().indexOf(new Account(b.getText().toString(), b.getTag().toString(), 0, 0)))));
+//					 System.out.println("back button pressed");
+//					 //register.resetUser();
+//					 startActivity(intent);
+				}
+            	
+            });
+           // buttons.add(b);
+	    }
 	    addTransaction.setNegativeButton("OK", new DialogInterface.OnClickListener() {
 	        @Override
 	        public void onClick(DialogInterface dialog, int which) {
@@ -98,10 +132,43 @@ public class DetailActivity extends Activity {
 	        	c.set(year, month, date);
 	        	Date processedDate = c.getTime();
 	        	System.out.println(transactionValue.getText().toString());
-	        	double value = Double.parseDouble(transactionValue.getText().toString());
-	        	 account.performTransaction(new Transaction(Transaction.TransactionType.valueOf(transactionType.getSelectedItem().toString().toUpperCase()), value, addedDate, processedDate, transactionName.getText().toString()));
-	            TextView t =  (TextView) findViewById(R.id.detailViewTextField);
-	            t.setText(account.toString());
+	        	String valueString = (transactionValue.getText().toString());
+	        	String transactionDisplayName = transactionName.getText().toString();
+	        	if (!valueString.equals("")&&!transactionDisplayName.equals("")) {
+	        		double value = Double.parseDouble(valueString);
+	        		account.performTransaction(new Transaction(Transaction.TransactionType.valueOf(transactionType.getSelectedItem().toString().toUpperCase()), value, addedDate, processedDate, transactionDisplayName));
+	            	TextView t =  (TextView) findViewById(R.id.detailViewTextField);
+	            	t.setText(account.toString());
+	            	transactionValue.setText("");
+	            	transactionName.setText("");
+	            	Button b = new Button(DetailActivity.this);
+	                b.setText(transactionDisplayName);
+	                transactionPane.addView(b);
+	                LayoutParams params =  b.getLayoutParams();
+	                params.width = LayoutParams.MATCH_PARENT;
+	                b.setLayoutParams(params);
+	                b.setOnClickListener(new OnClickListener(){
+
+	    				@Override
+	    				public void onClick(View v) {
+//	    					 Button b = (Button) v;
+//	    					 finish();
+//	    					 //Intent intent = new Intent(DetailActivity.this, DetailActivity.class);
+//	    					 jsonString = gson.toJson(register);
+//	    					 System.out.println(jsonString);
+//	    					 intent.putExtra("register", jsonString);
+//	    					 //b.getTag().toString(),,0,0)
+//	    					 intent.putExtra("account", gson.toJson(register.getUser().getAccounts().get(register.getUser().getAccounts().indexOf(new Account(b.getText().toString(), b.getTag().toString(), 0, 0)))));
+//	    					 System.out.println("back button pressed");
+//	    					 //register.resetUser();
+//	    					 startActivity(intent);
+	    				}
+	                	
+	                });
+	        	}
+	        	else {
+				transactionError.show();
+	        	}
 	        }
 	    });
 	    addTransaction.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
@@ -110,6 +177,14 @@ public class DetailActivity extends Activity {
 	            dialog.cancel();
 	        }
 	    });
+	    transactionError.setMessage("Conflicting information entered");
+	    transactionError.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) { 
+				ViewGroup g = ((ViewGroup) scrollPane.getParent());
+				g.removeView(scrollPane);
+				addTransaction.show();
+			}
+	     });
 	}
 
 	@Override
