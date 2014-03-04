@@ -106,7 +106,7 @@ public class AccountActivity extends Activity {
 	            String balanceString = startingBalance.getText().toString();
 	            String interestString = interestRate.getText().toString();
 	           // Account account = ;
-	            if(!(displayName.equals(""))&&!(accountNameString.equals(""))&&!(balanceString.equals(""))&&!(interestRate.equals(""))&&register.getUser().addAccount(new Account(accountNameString, displayName, Double.parseDouble(balanceString), Double.parseDouble(interestString)))){
+	            if(!(displayName.equals(""))&&!(accountNameString.equals(""))&&!(balanceString.equals(""))&&!(interestString.equals(""))&&register.getUser().addAccount(new Account(accountNameString, displayName, Double.parseDouble(balanceString), Double.parseDouble(interestString)))){
 		            Button b = new Button(AccountActivity.this);
 		            b.setText(displayName);
 		            b.setTag(accountName);
