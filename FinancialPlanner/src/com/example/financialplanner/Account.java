@@ -115,6 +115,10 @@ public class Account {
 		
 	}
 	
+	public ArrayList<Transaction> getTransactions(){
+		return transactions;
+	}
+	
 	public String toString() {
 		return "name: " + name + " displayname: " + displayName + " balance: " + balance + " interest rate: " + interestRate;
 	}
