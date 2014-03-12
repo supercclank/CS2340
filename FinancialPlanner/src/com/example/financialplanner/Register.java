@@ -18,7 +18,6 @@ public class Register {
 		if (userNames.get(userName) == null) {
 			userNames.put(userName,new User(userName, password));
 			return true;
-
 		}
 
 		return false;
