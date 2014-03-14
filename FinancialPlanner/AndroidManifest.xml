@@ -45,6 +45,10 @@
             android:name="com.example.financialplanner.DetailActivity"
             android:label="@string/title_activity_detail" >
         </activity>
+        <activity
+            android:name="com.example.financialplanner.ReportActivity"
+            android:label="@string/title_activity_report" >
+        </activity>
     </application>
 
 </manifest>
