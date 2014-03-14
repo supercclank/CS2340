@@ -9,7 +9,8 @@ package com.example.financialplanner;
 
 public final class R {
     public static final class array {
-        public static final int transactiontype_array=0x7f070000;
+        public static final int generatereport_array=0x7f050000;
+        public static final int transactiontype_array=0x7f050001;
     }
     public static final class attr {
     }
@@ -28,26 +29,29 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int accountList=0x7f090001;
-        public static final int action_forgot_password=0x7f090013;
-        public static final int action_settings=0x7f090012;
-        public static final int addTransaction=0x7f090003;
+        public static final int accountList=0x7f090002;
+        public static final int action_forgot_password=0x7f090016;
+        public static final int action_settings=0x7f090015;
+        public static final int addTransaction=0x7f090005;
         public static final int button1=0x7f090000;
-        public static final int button2=0x7f09000d;
-        public static final int detailViewTextField=0x7f090002;
-        public static final int login=0x7f09000a;
-        public static final int login_form=0x7f090007;
-        public static final int login_status=0x7f090005;
-        public static final int login_status_message=0x7f090006;
-        public static final int newuserpassword=0x7f090010;
-        public static final int newuseruser=0x7f09000f;
-        public static final int password=0x7f090009;
-        public static final int register_button=0x7f090011;
-        public static final int register_form=0x7f09000e;
-        public static final int sign_in_button=0x7f09000b;
-        public static final int textView1=0x7f09000c;
-        public static final int transactionList=0x7f090004;
-        public static final int username=0x7f090008;
+        public static final int button2=0x7f09000f;
+        public static final int detailViewTextField=0x7f090004;
+        public static final int generateButton=0x7f090003;
+        public static final int login=0x7f09000c;
+        public static final int login_form=0x7f090009;
+        public static final int login_status=0x7f090007;
+        public static final int login_status_message=0x7f090008;
+        public static final int newuserpassword=0x7f090012;
+        public static final int newuseruser=0x7f090011;
+        public static final int password=0x7f09000b;
+        public static final int register_button=0x7f090013;
+        public static final int register_form=0x7f090010;
+        public static final int reportList=0x7f090014;
+        public static final int scrollView1=0x7f090001;
+        public static final int sign_in_button=0x7f09000d;
+        public static final int textView1=0x7f09000e;
+        public static final int transactionList=0x7f090006;
+        public static final int username=0x7f09000a;
     }
     public static final class layout {
         public static final int activity_account=0x7f030000;
@@ -55,6 +59,7 @@ public final class R {
         public static final int activity_login=0x7f030002;
         public static final int activity_main=0x7f030003;
         public static final int activity_registry=0x7f030004;
+        public static final int activity_report=0x7f030005;
     }
     public static final class menu {
         public static final int account=0x7f080000;
@@ -62,31 +67,33 @@ public final class R {
         public static final int login=0x7f080002;
         public static final int main=0x7f080003;
         public static final int registry=0x7f080004;
+        public static final int report=0x7f080005;
     }
     public static final class string {
-        public static final int action_forgot_password=0x7f05000f;
-        public static final int action_settings=0x7f050001;
-        public static final int action_sign_in_register=0x7f05000d;
-        public static final int action_sign_in_short=0x7f05000e;
-        public static final int app_name=0x7f050000;
-        public static final int button_register=0x7f050008;
-        public static final int button_register_new=0x7f050009;
-        public static final int button_sign_in=0x7f050007;
-        public static final int error_field_required=0x7f050014;
-        public static final int error_incorrect_password=0x7f050013;
-        public static final int error_invalid_email=0x7f050011;
-        public static final int error_invalid_password=0x7f050012;
-        public static final int hello_world=0x7f050002;
-        public static final int login_progress_signing_in=0x7f050010;
+        public static final int action_forgot_password=0x7f060010;
+        public static final int action_settings=0x7f060001;
+        public static final int action_sign_in_register=0x7f06000e;
+        public static final int action_sign_in_short=0x7f06000f;
+        public static final int app_name=0x7f060000;
+        public static final int button_register=0x7f060008;
+        public static final int button_register_new=0x7f060009;
+        public static final int button_sign_in=0x7f060007;
+        public static final int error_field_required=0x7f060015;
+        public static final int error_incorrect_password=0x7f060014;
+        public static final int error_invalid_email=0x7f060012;
+        public static final int error_invalid_password=0x7f060013;
+        public static final int hello_world=0x7f060002;
+        public static final int login_progress_signing_in=0x7f060011;
         /**  Strings related to login 
          */
-        public static final int prompt_email=0x7f05000c;
-        public static final int prompt_password=0x7f050004;
-        public static final int prompt_username=0x7f050003;
-        public static final int title_activity_account=0x7f050005;
-        public static final int title_activity_detail=0x7f05000a;
-        public static final int title_activity_login=0x7f05000b;
-        public static final int title_activity_registry=0x7f050006;
+        public static final int prompt_email=0x7f06000d;
+        public static final int prompt_password=0x7f060004;
+        public static final int prompt_username=0x7f060003;
+        public static final int title_activity_account=0x7f060005;
+        public static final int title_activity_detail=0x7f06000a;
+        public static final int title_activity_login=0x7f06000c;
+        public static final int title_activity_registry=0x7f060006;
+        public static final int title_activity_report=0x7f06000b;
     }
     public static final class style {
         /** 
@@ -110,11 +117,11 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
-        public static final int LoginFormContainer=0x7f060002;
+        public static final int AppTheme=0x7f070001;
+        public static final int LoginFormContainer=0x7f070002;
     }
 }
