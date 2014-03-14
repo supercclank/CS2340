@@ -193,5 +193,14 @@ public class AccountActivity extends Activity {
 		createAccount.show();
 		//user.addAccount(account);
 	}
-	
+	public void goToGenerate(View v){
+		 finish();
+		    Intent intent = new Intent(this, ReportActivity.class);
+		    jsonString = gson.toJson(register);
+		    System.out.println(jsonString);
+		    intent.putExtra("register", jsonString);
+		    System.out.println("back button pressed");
+		    register.resetUser();
+		    startActivity(intent);
+	}
 }

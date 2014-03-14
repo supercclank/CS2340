@@ -213,7 +213,7 @@ public class DetailActivity extends Activity {
 	    System.out.println(jsonString);
 	    intent.putExtra("register", jsonString);
 	    System.out.println("back button pressed");
-	    register.resetUser();
+	    //register.resetUser();
 	    startActivity(intent);
 	}
 
