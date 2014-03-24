@@ -1,26 +1,22 @@
 package com.example.financialplanner;
-
 import java.util.ArrayList;
-
+import java.util.List;
 /**
  * This class defines a User. Users have usernames and passwords, as well as
  * Accounts which keep track of Transactions.
  *
- * @author Cory
+ * @author Cory Brzycki
+ * @version 1.0
  */
 public class User {
-
-	//TODO - implement encryption of some type for password Storing (plain text = bad)
-
 	private ArrayList<Account> accounts;
     private String userName;
     private String password;
 
     /**
-     * Constructs a new User object.
-     *
-     * @param	userName	- this User's username
-     * @param	password	- this User's password
+     * Constructor for User
+     * @param String userName - the userName of a to be created User
+     * @param Password password	- the password of a to be created User
      */
     public User(String userName, String password) {
         this.accounts = new ArrayList<Account>();
@@ -28,33 +24,30 @@ public class User {
         this.password = password;
 
     }
-
     /**
      * Returns a List of all Accounts belonging to this User.
-     *
-     * @return	the List of all this User's Accounts
+     * @return List - list of all this User's Accounts
      */
-    public ArrayList<Account> getAccounts() {
+    public List<Account> getAccounts() {
         return accounts;
 
     }
 
     /**
      * Returns whether or not the passed string matches this User's password.
-     *
-     * @param	password	- the password to be checked
-     * @return	true if the passed string is the correct password
+     * @param String password - the password to be checked
+     * @return boolean - true if the passed string matches this User's password
+     * 						false otherwise
      */
     public boolean checkPass(String password) {
         return this.password.equals(password);
 
     }
-
     /**
      * Adds an Account to this User's profile.
-     *
-     * @param	account	- the Account to be added
-     * @return	true if the Account was added / was not already present
+     * @param Account account - the Account to be added
+     * @return boolean - true if the Account was added or was not already present
+     * 					false otherwise
      */
     public boolean addAccount(Account account) {
     	if (accounts.indexOf(account)<0){
@@ -64,28 +57,21 @@ public class User {
     	return false;
 
     }
-
     /**
      * Deletes an Account from this User's profile.
-     *
-     * @param	account	- the Account to be deleted
-     * @return	true if the Account was present and deleted
+     * @param Account account - the Account to be deleted
+     * @return boolean - true if the Account was present and deleted
+     * 						false otherwise
      */
     public boolean deleteAccount(Account account) {
         return accounts.remove(account);
     }
-
     /**
-     * Returns this User's username.
-     *
-     * @return	this User's username
+     * getter for username.
+     * @return String username - this user's userName
      */
     public String getUserName() {
         return userName;
 
-    }
-    
-    public String toString() {
-    	return userName + " w/ accs: " + accounts;
     }
 }

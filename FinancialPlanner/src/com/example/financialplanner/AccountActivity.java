@@ -89,7 +89,7 @@ public class AccountActivity extends Activity {
 					 System.out.println(jsonString);
 					 intent.putExtra("register", jsonString);
 					 //b.getTag().toString(),,0,0)
-					 intent.putExtra("account", gson.toJson(register.getUser().getAccounts().get(register.getUser().getAccounts().indexOf(new Account(b.getText().toString(), b.getTag().toString(), 0, 0)))));
+					 intent.putExtra("account", gson.toJson(register.getUser().getAccounts().get(register.getUser().getAccounts().indexOf(new Account(b.getTag().toString(), b.getText().toString(), 0, 0)))));
 					 System.out.println("back button pressed");
 					 //register.resetUser();
 					 startActivity(intent);
@@ -193,5 +193,14 @@ public class AccountActivity extends Activity {
 		createAccount.show();
 		//user.addAccount(account);
 	}
-	
+	public void goToGenerate(View v){
+		 finish();
+		    Intent intent = new Intent(this, ReportActivity.class);
+		    jsonString = gson.toJson(register);
+		    System.out.println(jsonString);
+		    intent.putExtra("register", jsonString);
+		    System.out.println("back button pressed");
+		    register.resetUser();
+		    startActivity(intent);
+	}
 }

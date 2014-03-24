@@ -1,37 +1,53 @@
 package com.example.financialplanner;
-
 import java.util.HashMap;
 import java.util.Map.Entry;
-
+/**
+ * Class responsible for keeping a record of User and Admin objects
+ * @author Cory Brzycki
+ * @version 1.0
+ */
 public class Register {
 	private HashMap<String, User> userNames; 
 	private Admin admin;
 	private User currentUser;
-	//creates register object, initializes the HashMap and creates a default admin
+	/**
+	 * creates register object, initializes the HashMap and creates a default admin
+	 */
 	public Register() {
 		userNames = new HashMap<String, User>();
 		admin = new Admin("admin_", "admin1");
 	}
-
-	//makes a new user and adds it to the HashMap
+	/**
+	 * Attempts to make a new user and adds it to the HashMap 
+	 * @param String userName - userName of the new User to be made
+	 * @param String password - the password of the new User to be made
+	 * @return true if user was successfully added to the HashMap
+	 * 				false otherwise
+	 */
 	public boolean addUser(String userName, String password) {
 		if (userNames.get(userName) == null) {
 			userNames.put(userName,new User(userName, password));
 			return true;
-
 		}
 
 		return false;
 
 	}
-
-	//gets HashMap of users
+	/**
+	 * getter for HashMap of Users
+	 * @return HashMap<String, User> userNames - the HashMap of users
+	 */
 	public HashMap<String, User> getUsers() {
 		return userNames;
 
 	}
-
-	//updates a user if it is contained in the userNames HashMap
+	/**
+	 * updates a user if it is contained in the userNames HashMap
+	 * @param User user - the user to update
+	 * @return true if user was found and updated
+	 * 				false otherwise
+	 * @postCondition - if user found, the record of user has been updated to reflect desired changes
+	 */
 	public boolean updateUserInformation(User user) {
 		if(userNames.get(user.getUserName()) == null) {
 			return false;
@@ -42,15 +58,26 @@ public class Register {
 		return true;
 
 	}
-	
+	/**
+	 * sets the currenUser to be null
+	 */
 	public void resetUser(){
 		currentUser = null;
 	}
-
+	/**
+	 * Metod that returns the currentUser (the user in focus)
+	 * @return User - the pointer for currentUser in userNames
+	 */
 	protected User getUser(){
 		return userNames.get(currentUser.getUserName());
 	}
-	//checks to see if info enters matches a user
+	/**
+	 * Checks to see if passed information lines up with a user
+	 * @param String username - the userName to search for
+	 * @param String password - the password of the desired User
+	 * @return true if a user exists that matches provided information
+	 * 				false otherwise
+	 */
 	public boolean checkInformation(String username, String password) {
 		User user = userNames.get(username);
 		if (user !=null && user.checkPass(password)){
@@ -60,17 +87,4 @@ public class Register {
 		return (user==null) ? false : user.checkPass(password);
 
 	}
-	
-	public String toString() {
-		String s = "==Begin Register==";
-		for(Entry<String, User> entry : userNames.entrySet()) {
-		    String key = entry.getKey();
-		    User value = entry.getValue();
-
-		    s = s + "\n" + key + "" + value;
-		}
-		s = s + "\n==End Register==";
-		return s;
-	}
-
 }
