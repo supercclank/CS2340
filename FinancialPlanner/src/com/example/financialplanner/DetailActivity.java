@@ -205,7 +205,6 @@ public class DetailActivity extends Activity {
 		addTransaction.setView(scrollPane);
 		addTransaction.show();
 	}
-
 	public void onBackPressed(){
 	    finish();
 	    Intent intent = new Intent(this, AccountActivity.class);
@@ -215,6 +214,15 @@ public class DetailActivity extends Activity {
 	    System.out.println("back button pressed");
 	    //register.resetUser();
 	    startActivity(intent);
+	}
+	
+	@Override
+	public void onPause(){
+		  super.onPause();
+		  //DatabaseInterface di = new DatabaseInterface(this);
+		  RegisterDataSource ds = new RegisterDataSource(this);
+		  jsonString = gson.toJson(register);
+		  ds.updateRegister(jsonString);
 	}
 
 }

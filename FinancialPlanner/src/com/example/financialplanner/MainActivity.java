@@ -1,5 +1,8 @@
 package com.example.financialplanner;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import com.google.gson.Gson;
 
 import android.os.Bundle;
@@ -14,7 +17,7 @@ import android.view.View;
  * @author Cory
  */
 public class MainActivity extends Activity {
-	private Register register;
+	public static Register register;
 	private Gson gson;
 	private String json;
 	private String jsonString;
@@ -22,15 +25,23 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		gson = new Gson();
 		json = getIntent().getStringExtra("register");
+		System.out.println("2"+ json);
+		if (json !=null) {
 		register = gson.fromJson(json, Register.class);
+		}
 		if (register==null){
 			register = new Register();
 			
 			System.out.println(register.addUser("admin", "pass123"));
 		}
+		Collection<User> h = register.getUsers().values();
+		for (User u : h) {
+		System.out.println("qqq "+u.getUserName());
+		}
 		jsonString = gson.toJson(register);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
 	}
 
 	@Override
@@ -62,5 +73,13 @@ public class MainActivity extends Activity {
 		Intent registerNew = new Intent(this, RegistryActivity.class);
 		registerNew.putExtra("register", jsonString);
 		startActivity(registerNew);
+	}
+	@Override
+	public void onPause(){
+		  super.onPause();
+		  //DatabaseInterface di = new DatabaseInterface(this);
+		  RegisterDataSource ds = new RegisterDataSource(this);
+		  jsonString = gson.toJson(register);
+		  ds.updateRegister(jsonString);
 	}
 }

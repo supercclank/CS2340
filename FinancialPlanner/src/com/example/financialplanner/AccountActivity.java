@@ -19,7 +19,11 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-
+/**
+ * Activity Reponsible for Account Creation and Viewing
+ * @author Cory Brzycki
+ * @version 1.0
+ */
 public class AccountActivity extends Activity {
 	private String json;
 	private Register register;
@@ -34,8 +38,6 @@ public class AccountActivity extends Activity {
 	private List<Button> buttons;
 	private LinearLayout accountPane;
 	private LinearLayout layout;
-	
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -162,14 +164,15 @@ public class AccountActivity extends Activity {
 			}
 	     });
 	}
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.account, menu);
 		return true;
 	}
-	
+	/**
+	 * Overwrite for what happens when back button is pressed
+	 * returns to the previous activity with register serialized
+	 */
 	public void onBackPressed(){
 	    finish();
 	    Intent intent = new Intent(this, LoginActivity.class);
@@ -180,19 +183,22 @@ public class AccountActivity extends Activity {
 	    register.resetUser();
 	    startActivity(intent);
 	}
-	
+	/**
+	 * Method that shows the createAccount dialogue 
+	 * @param View v - the view that called this method
+	 */
 	public void addAccount(View v){
-		//createAccount.removeView();
-		//createAccount.removeView();
 		ViewGroup g = ((ViewGroup) layout.getParent());
 		if (g != null) {
 			g.removeView(layout);
 		}
-		
 		createAccount.setView(layout);
 		createAccount.show();
-		//user.addAccount(account);
 	}
+	/**
+	 * OnClick method for transition to ReportActivity
+	 * @param View v - the view that called this method
+	 */
 	public void goToGenerate(View v){
 		 finish();
 		    Intent intent = new Intent(this, ReportActivity.class);
@@ -202,5 +208,14 @@ public class AccountActivity extends Activity {
 		    System.out.println("back button pressed");
 		    register.resetUser();
 		    startActivity(intent);
+	}
+	
+	@Override
+	public void onPause(){
+		 super.onPause();
+		  //DatabaseInterface di = new DatabaseInterface(this);
+		  RegisterDataSource ds = new RegisterDataSource(this);
+		  jsonString = gson.toJson(register);
+		  ds.updateRegister(jsonString);
 	}
 }

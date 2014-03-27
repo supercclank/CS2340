@@ -75,5 +75,14 @@ public class LoginActivity extends Activity {
 	    System.out.println("back button pressed");
 	    startActivity(intent);
 	}
+	
+	@Override
+	public void onPause(){
+		 super.onPause();
+		  //DatabaseInterface di = new DatabaseInterface(this);
+		  RegisterDataSource ds = new RegisterDataSource(this);
+		  jsonString = gson.toJson(register);
+		  ds.updateRegister(jsonString);
+	}
 		
 }

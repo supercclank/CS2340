@@ -161,4 +161,12 @@ public class ReportActivity extends Activity {
 	    startActivity(intent);
 	}
 
+	@Override
+	public void onPause(){
+		  super.onPause();
+		  //DatabaseInterface di = new DatabaseInterface(this);
+		  RegisterDataSource ds = new RegisterDataSource(this);
+		  jsonString = gson.toJson(register);
+		  ds.updateRegister(jsonString);
+	}
 }
