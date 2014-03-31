@@ -95,12 +95,6 @@ public class Account {
      */
     public boolean performTransaction(Transaction transaction) {
         run(transaction, 1);
-        if (transaction.getType() == TransactionType.DEPOSIT) {
-            deposits.add(transaction);
-        }
-        if (transaction.getType() == TransactionType.WITHDRAW) {
-            deposits.add(transaction);
-        }
         return transactions.add(transaction);
 
     }
