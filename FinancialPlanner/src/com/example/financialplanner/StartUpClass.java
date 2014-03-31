@@ -1,12 +1,23 @@
 package com.example.financialplanner;
 
 import com.google.gson.Gson;
-import android.app.Application;
 
+import android.app.Application;
+/**
+ * Class that is responsible for loading the database on startup.
+ * @author Cory
+ *
+ */
 public class StartUpClass extends Application {
-	private Gson gson;
-	private String json;
-	private String jsonString;
+    /**
+     * The gson object used for serialization.
+     */
+    private Gson gson;
+    /**
+     * The json representation of the register.
+     */
+    private String json;
+    @Override
     public void onCreate() {
         super.onCreate();
         // Your methods here...
@@ -14,10 +25,13 @@ public class StartUpClass extends Application {
         RegisterDataSource ds = new RegisterDataSource(this);
         json = ds.getRegister("register");
         if (json != null) {
-        	//MainActivity.register = new Register();
-        	gson = new Gson();
-        	System.out.println(json);
-        	MainActivity.register = gson.fromJson(json, Register.class);
+            gson = new Gson();
+            System.out.println(json);
+            MainActivity.register = gson.fromJson(json, Register.class);
+        } else {
+            MainActivity.register  = new Register();
+            
+            System.out.println(MainActivity.register .addUser("admin", "pass123"));
         }
         System.out.println("huurr it worked??");
     }
