@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fileset-config file-format-version="1.2.0" simple-config="true" sync-formatter="true">
+  <local-check-config name="aa" location="internal_config__1395962662550.xml" type="internal" description=""/>
+  <local-check-config name="2340" location="internal_config__1396027994177.xml" type="internal" description=""/>
+  <local-check-config name="2340-1" location="internal_config__1396205800633.xml" type="internal" description=""/>
+  <local-check-config name="2340-2" location="internal_config__1396208222655.xml" type="internal" description=""/>
+  <fileset name="all" enabled="true" check-config-name="2340-2" local="true">
+    <file-match-pattern match-pattern="." include-pattern="true"/>
+  </fileset>
+</fileset-config>
