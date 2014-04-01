@@ -83,4 +83,17 @@ public class User {
         return userName;
 
     }
+    /**
+     * Overwritten equals method
+     * Two Users are equal if they have same userName and password
+     * @return boolean - whether two Users are equal
+     */
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (!(o instanceof User)) return false;
+        User oUser = (User) o;
+        if (oUser.userName.equals(this.userName)
+                && oUser.password.equals(this.password)) return true;
+        return false;
+    }
 }
