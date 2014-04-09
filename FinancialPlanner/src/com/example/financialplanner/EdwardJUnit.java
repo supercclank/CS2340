@@ -1,7 +1,5 @@
 package com.example.financialplanner;
-/**
- * 
- */
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import java.util.HashMap;
@@ -10,6 +8,7 @@ import org.junit.Test;
 
 
 /**
+ * Edward's famtastic JUnit Test
  * Tests for addUser() in Register.java.
  * 
  * @author Edward Sum Lok Yu
